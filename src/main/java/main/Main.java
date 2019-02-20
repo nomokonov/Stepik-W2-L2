@@ -30,7 +30,6 @@ public class Main {
         MBeanServer mbServer = ManagementFactory.getPlatformMBeanServer();
         mbServer.registerMBean(resource, new ObjectName("Admin:type=ResourceServerController"));
 
-
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.addServlet(new ServletHolder(new ResourceServlet(resource)), "/*");
 
@@ -44,7 +43,4 @@ public class Main {
         System.out.println("Server started");
         server.join();
     }
-
-
-
 }
